@@ -1,16 +1,6 @@
-- name: Create a jenkins job using basic authentication
-  community.general.jenkins_job:
-    config: "{{ lookup('file', '/temp/job.xml') }}"
-    name: "{{item}}"
-    url: http://172.31.14.194:8080
-    user: admin
-    password: "{{jenkins-password}}"
-  loop:
-   - ci-pipeline
-
-
 
 - name: include task
   ansible.builtin.include_tasks: pipeline.yml
   loop:
    - {name: "frontend", dir: "ci-pipeline" }
+  
