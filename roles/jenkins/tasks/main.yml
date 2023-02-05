@@ -1,4 +1,4 @@
-- name: Create a jenkins job using basic authentication
+- name: Create a jenkins jobs
   community.general.jenkins_job:
     config: "{{ lookup('file', 'templates/folder.xml') }}"
     name: "{{item}}"
@@ -6,8 +6,6 @@
     user: admin
     password: "{{jenkins_password}}"
   loop: "{{ folders }}"
-
-
 
 
 - name: create pipeline jobs
