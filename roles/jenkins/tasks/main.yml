@@ -1,7 +1,7 @@
 - name: Create a jenkins job using basic authentication
   community.general.jenkins_job:
     config: "{{ lookup('file', 'templates/folder.xml') }}"
-    name: "{{item.dir}}"
+    name: "{{item}}"
     url: http://172.31.5.217:8080
     user: admin
     password: admin123
