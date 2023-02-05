@@ -1,4 +1,4 @@
-pipelines:
+pipelines_jobs:
  - {name: "frontend", dir: "ci-pipeline" }
 
 
