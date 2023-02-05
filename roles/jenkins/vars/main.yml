@@ -1,0 +1,6 @@
+piplines:
+ - {name: "frontend", dir: "ci-pipeline" }
+
+
+folders:
+ - ci-pipeline
