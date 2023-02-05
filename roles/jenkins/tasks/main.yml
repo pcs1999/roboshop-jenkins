@@ -4,13 +4,13 @@
     name: "{{item}}"
     url: http://172.31.5.217:8080
     user: admin
-    password: admin123
-  loop: "{{folders}}"
+    password: "{{jenkins_password}}"
+  loop: "{{ folders }}"
 
 
 
 
 - name: include task
   ansible.builtin.include_tasks: pipeline.yml
-  loop: "{{pipelines}}"
+  loop: "{{ pipelines }}"
    
