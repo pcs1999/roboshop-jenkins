@@ -1,7 +1,23 @@
+- name: check if robo-shop exit or not 
+  community.general.jenkins_job_info:
+    url: http://172.31.5.217:8080
+    user: admin
+    password: "{{jenkins_password}}"
+    name: "{{item.dir}}/{{item.name}}"
+  register: out
+
+- name: debug
+  ansible.builtin.debug: 
+   msg: "{{out}}"
+
+  
+
+
 - name: config files
   ansible.builtin.template: 
    src: job1.xml 
    dest: /tmp/job1.xml
+  when: out.failed | bool
 
 - name: Create a jenkins job 
   community.general.jenkins_job:
@@ -10,3 +26,4 @@
     url: http://172.31.5.217:8080
     user: admin
     password: "{{jenkins_password}}"
+  when: out.failed | bool
